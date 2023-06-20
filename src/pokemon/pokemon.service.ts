@@ -34,9 +34,10 @@ export class PokemonService {
     }
   };
 
-  findAll() {
-    return `This action returns all pokemon`;
-  }
+  public findAll = async () => {
+    const pokemons = await this.model.find();
+    return pokemons.map(({ name, no }) => ({ name, no }));
+  };
 
   public findOne = async (term: string) => {
     let pokemon: Pokemon;
