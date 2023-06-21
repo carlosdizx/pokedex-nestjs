@@ -20,6 +20,12 @@
    ```
    docker-compose up -d
    ```
+5. Reconstruir base de datos con la semilla
+   ```http request
+   GET http://localhost:3000/seed
+   ```
+6. Clonar el archivo __.env.template__ y renombrar la copia a __.env__
+y rellenar las variables con los valores que corresponda
 ## STOCK
 - MongoDB
 - NestJS
