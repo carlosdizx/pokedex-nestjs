@@ -7,8 +7,13 @@ export class SeedService {
   private readonly axios: AxiosInstance = axios;
   public executeSeed = async () => {
     const { data } = await this.axios.get<PokeResponse>(
-      "https://pokeapi.co/api/v2/pokemon?limit=650"
+      "https://pokeapi.co/api/v2/pokemon?limit=10"
     );
-    return data.results;
+    const { results } = data;
+    for (const { name, url } of results) {
+      const segments = url.split("/");
+      const no = +segments[segments.length - 2];
+      console.log(name, no);
+    }
   };
 }
