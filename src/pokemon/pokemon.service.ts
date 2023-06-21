@@ -78,4 +78,13 @@ export class PokemonService {
       `Can't create Pokemon - Check server logs`
     );
   }
+
+  public createBulk = async (list: Pokemon[]) => {
+    try {
+      await this.model.insertMany(list);
+      return { message: "Success, seed database" };
+    } catch (error) {
+      this.handleExceptions(error);
+    }
+  };
 }
