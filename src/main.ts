@@ -1,6 +1,7 @@
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 import { ValidationPipe } from "@nestjs/common";
+import * as process from "process";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -17,6 +18,7 @@ async function bootstrap() {
     })
   );
 
-  await app.listen(3000);
+  await app.listen(process.env.PORT);
+  console.log(`App listening in ${process.env.PORT}`);
 }
 bootstrap();
