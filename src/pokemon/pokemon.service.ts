@@ -15,7 +15,11 @@ import PaginationDto from "../common/dto/pagination.dto";
 export class PokemonService {
   constructor(
     @InjectModel(Pokemon.name) private readonly model: Model<Pokemon>
-  ) {}
+  ) {
+  console.log(process.env.DB_HOST);
+  console.log(process.env.PORT);
+  console.log(process.env.DEFAULT_LIMIT);
+  }
   public create = async (createPokemonDto: CreatePokemonDto) => {
     try {
       createPokemonDto.name = createPokemonDto.name.toUpperCase();
