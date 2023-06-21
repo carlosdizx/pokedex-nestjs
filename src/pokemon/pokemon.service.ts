@@ -28,7 +28,7 @@ export class PokemonService {
   };
 
   public findAll = async () => {
-    const pokemons = await this.model.find();
+    const pokemons = await this.model.find().limit(5).skip(10);
     return pokemons.map(({ name, no, _id }) => ({ name, no, _id }));
   };
 
